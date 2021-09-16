@@ -10,7 +10,23 @@ declare namespace LickApi {
 
   interface IApiResponse {
     info: IApiInfo;
-    results: ICharacter[];
+    results: ICharacterApiResponse[];
+  }
+
+  interface ICharacterApiResponse extends ICharacterCore {
+    origin: ILocationAPIResponse;
+    location: ILocationAPIResponse;
+    episode: string[];
+    type: string;
+    gender: string;
+    image: string;
+    url: string;
+    created: Date;
+  }
+
+  interface ILocationAPIResponse {
+    name: string;
+    url: string;
   }
 
   interface IApiInfo {
@@ -26,16 +42,13 @@ declare namespace LickApi {
     status: string;
     species: string;
     gender: string;
-    image: string;
-    type: string;
-    url: string;
-    created: Date;
   }
 
   interface ICharacter extends ICharacterCore {
     origin: ILocation;
     location: ILocation;
     episodes: IEpisode[];
+    avatar: string;
   }
 
   interface ILocation {
