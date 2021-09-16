@@ -8,13 +8,28 @@ declare namespace LickApi {
     text: string;
   }
 
+  interface IApiResponse {
+    info: IApiInfo;
+    results: ICharacter[];
+  }
+
+  interface IApiInfo {
+    count: number;
+    pages: number;
+    next?: string;
+    prev?: number;
+  }
+
   interface ICharacterCore {
     id: number;
     name: string;
     status: string;
     species: string;
     gender: string;
-    avatar: string;
+    image: string;
+    type: string;
+    url: string;
+    created: Date;
   }
 
   interface ICharacter extends ICharacterCore {
