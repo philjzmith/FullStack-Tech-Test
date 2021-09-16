@@ -3,7 +3,6 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Helvetica", sans-serif;
-  background-color: #111;
 }
 
 a {
@@ -13,4 +12,72 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+}
+
+/* Card */
+
+.card-row {
+  margin-top: -150px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 16.666%;
+  padding: 10px;
+}
+
+.card-container {
+  background-color: #edfcff;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-container > .card-image {
+  width: 100%;
+  background-size: contain;
+}
+
+.card-container > .card-image:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.card-container > .card-content {
+  text-align: left;
+  padding: 5px;
+}
+
+.card-container > .card-link {
+  text-align: center;
+  padding: 15px;
+  width: 100%;
+  background-color: #00b0c8;
+}
+
+@media (max-width: 1600px) {
+  .card {
+    width: 25%;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .card {
+    width: 33.333%;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 680px) {
+  .card {
+    width: 50%;
+    padding: 10px;
+  }
 }
