@@ -19,6 +19,10 @@ h1 {
   margin: 0;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 /* Card */
 
 .card-row {
@@ -78,5 +82,73 @@ h1 {
   .card {
     width: 50%;
     padding: 10px;
+  }
+}
+
+/* Details */
+
+.details {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.details > .details-image {
+  width: 15%;
+  border-radius: 50%;
+  background-size: contain;
+}
+
+.details > .details-image:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.details > .details-content {
+  padding-left: 20px;
+  width: 60%;
+}
+
+@media (max-width: 1600px) {
+  .details > .details-image {
+    width: 25%;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .details > .details-image {
+    width: 33.333%;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 680px) {
+  .header {
+    padding: 0 !important;
+    text-align: center !important;
+  }
+  .wrapper {
+    padding: 0px !important;
+    margin-top: 0 !important;
+  }
+  .details {
+    background-color: #00b0c8;
+    padding: 20px 100px;
+  }
+
+  .details > .details-image {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .details > .details-content {
+    width: 100%;
+    text-align: center;
+  }
+
+  .content {
+    padding: 0 40px;
   }
 }

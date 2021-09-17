@@ -16,6 +16,7 @@ export const mapData = async (
     origin: originMap,
     location: locationDataMap,
     episodes: episodes,
+    status: data.status,
   } as LickApi.ICharacter;
 };
 
