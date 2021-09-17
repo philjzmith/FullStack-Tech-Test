@@ -18,7 +18,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "rootDirs": ["src"]
+    "rootDirs": ["src"],
+    "paths": {
+      "@lick/components/shared/*": ["src/components/_shared/*"],
+      "@lick/components/templates/*": ["src/components/_templates/*"]
+    }
   },
   "include": [
     "next-env.d.ts",

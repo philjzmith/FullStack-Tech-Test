@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Card from '../../_shared/card';
+import Card from '@lick/components/shared/Card';
 import styled from 'styled-components';
-import Meta from '../../_shared/Meta';
+import Meta from '@lick/components/shared/Meta';
 import InfiniteScroll from "react-infinite-scroll-component";
 
 interface IIntroTemplateProps {
