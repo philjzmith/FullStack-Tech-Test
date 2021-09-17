@@ -17,6 +17,7 @@ const IntroTemplate: React.FC<IIntroTemplateProps> = ({
   const [data, setData] = useState([]);
   const [hasMore, setHasMore] = useState(true);
   const [currentPage, setcurrentPage] = useState(1);
+  const [character, setCharacter] = useState('rick');
 
   useEffect(() => {
     loadData();
@@ -25,16 +26,24 @@ const IntroTemplate: React.FC<IIntroTemplateProps> = ({
 
   const loadData = async() => {  
 
-    const response = await (await fetch(`http://localhost:3000/api/hello/?page=${currentPage}`, {method: 'GET'})).json()
-
-    if(!response.info.next) {
-      setHasMore(false);
-    }
-    else {
-      setcurrentPage(currentPage + 1)
-    }
+    const response = await (await fetch(`http://localhost:3000/api/hello/?page=${currentPage}&name=${character}`, {method: 'GET'})).json()
 
     setData(() => [...data, ...response.data]);
+
+    if(!response.info.next && character === 'morty') {
+      setHasMore(false);
+      return false;
+    }
+
+    if(!response.info.next && character !== 'morty') {
+      setCharacter('morty');
+      setcurrentPage(1);
+      return false;
+    }
+    
+    setcurrentPage(currentPage + 1)
+    
+    
   }
 
   return (
