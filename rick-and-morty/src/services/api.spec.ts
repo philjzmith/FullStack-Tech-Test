@@ -1,4 +1,4 @@
-import { getData, getEpisodeData, getLocationData } from "./hello";
+import { getData, getEpisodeData, getLocationData } from "./api";
 
 const unmockedFetch = global.fetch;
 

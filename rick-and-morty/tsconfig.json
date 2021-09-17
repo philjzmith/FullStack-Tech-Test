@@ -21,7 +21,8 @@
     "rootDirs": ["src"],
     "paths": {
       "@lick/components/shared/*": ["src/components/_shared/*"],
-      "@lick/components/templates/*": ["src/components/_templates/*"]
+      "@lick/components/templates/*": ["src/components/_templates/*"],
+      "@lick/services/*": ["src/services/*"]
     }
   },
   "include": [

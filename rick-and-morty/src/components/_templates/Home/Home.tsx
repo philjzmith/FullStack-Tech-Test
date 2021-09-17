@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Card from '@lick/components/shared/Card';
 import styled from 'styled-components';
-import Meta from '@lick/components/shared/Meta';
 import InfiniteScroll from "react-infinite-scroll-component";
 
-interface IIntroTemplateProps {
+interface IHomeTemplateProps {
   className?: string;
-  title: string;
 }
 
-const IntroTemplate: React.FC<IIntroTemplateProps> = ({
-  className,
-  title
+const HomeTemplate: React.FC<IHomeTemplateProps> = ({
+  className
 }) => {
 
   const [data, setData] = useState([]);
@@ -26,8 +23,7 @@ const IntroTemplate: React.FC<IIntroTemplateProps> = ({
 
   const loadData = async() => {  
 
-    const response = await (await fetch(`http://localhost:3000/api/hello/?page=${currentPage}&name=${character}`, {method: 'GET'})).json()
-
+    const response = await (await fetch(`http://localhost:3000/api/character/?page=${currentPage}&name=${character}`, {method: 'GET'})).json()
     setData(() => [...data, ...response.data]);
 
     if(!response.info.next && character === 'morty') {
@@ -40,23 +36,17 @@ const IntroTemplate: React.FC<IIntroTemplateProps> = ({
       setcurrentPage(1);
       return false;
     }
-    
+
     setcurrentPage(currentPage + 1)
-    
-    
   }
 
   return (
     <>
-      <Meta title={title} />
-
       <Header>
           <h1>Rick and Morty</h1>
       </Header>
 
       <Wrapper className={className}>
-
-        
         <InfiniteScroll
           dataLength={data.length}
           next={loadData}
@@ -70,8 +60,6 @@ const IntroTemplate: React.FC<IIntroTemplateProps> = ({
             )) : ''}
           </div>
         </InfiniteScroll>
-    
-  
       </Wrapper>
     </>
   );
@@ -93,4 +81,4 @@ const Wrapper = styled.div`
   margin-top: -150px;
 `;
 
-export default IntroTemplate;
+export default HomeTemplate;

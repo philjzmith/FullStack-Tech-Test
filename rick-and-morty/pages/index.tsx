@@ -1,8 +1,12 @@
 import { NextPage } from 'next';
-import IntroTemplate from '@lick/components/templates/Intro';
+import HomeTemplate from '@lick/components/templates/Home';
+import Meta from '@lick/components/shared/Meta';
 
-const IntroPage: NextPage = () => {
-  return <IntroTemplate title="Rick and Morty FE Tech Test" />;
+const HomePage: NextPage = () => {
+  return <>
+    <Meta title="Rick and Morty FE Tech Test" />
+    <HomeTemplate />
+  </>;
 };
 
-export default IntroPage;
+export default HomePage;

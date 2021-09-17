@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link'
 
 interface ICardProps {
   name: string;
@@ -20,7 +21,9 @@ const Card: React.FunctionComponent<ICardProps> = (props: ICardProps) => {
         Gender: {props.gender} <br />
         Species: {props.species}
       </div>
-      <a href="" className="card-link">View Profile</a>
+      <Link href={`/${props.id}`}>
+        <a className="card-link">View Profile</a>
+      </Link>
      </div>
    </div>
   );
