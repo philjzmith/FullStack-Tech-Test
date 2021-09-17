@@ -1,8 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
 const helloHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+  const page = req.query["page"] ? `&page=${req.query.page}` : "";
+
   let data: LickApi.IApiResponse = await getData(
-    "https://rickandmortyapi.com/api/character?name=rick&status=alive"
+    `https://rickandmortyapi.com/api/character?name=rick&status=alive${page}`
   );
 
   const returnData: LickApi.ICharacter[] = await mapData(data.results);
